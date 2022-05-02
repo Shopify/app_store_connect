@@ -23,12 +23,12 @@ module AppStoreConnect
       web_service_endpoint_aliases.include?(method_name) || super
     end
 
-    def method_missing(method_name, *kwargs)
+    def method_missing(method_name, **kwargs)
       super unless web_service_endpoint_aliases.include?(method_name)
 
       web_service_endpoint = web_service_endpoint_by(method_name)
 
-      call(web_service_endpoint, *kwargs)
+      call(web_service_endpoint, **kwargs)
     end
 
     # :nocov:
