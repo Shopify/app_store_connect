@@ -82,7 +82,7 @@ module AppStoreConnect
 
       options[:http_body] = http_body(web_service_endpoint, **kwargs) if web_service_endpoint.http_method == :post
 
-      Request.new(options)
+      Request.new(**options)
     end
 
     def headers
